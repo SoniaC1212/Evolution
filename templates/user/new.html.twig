@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter un utilisateur</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.password) }}
+    <button type="submit" class="btn btn-success">Ajouter</button>
+    {{ form_end(form) }}
+{% endblock %}

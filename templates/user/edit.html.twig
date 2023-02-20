@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Modifier l'utilisateur {{ user.email }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.email) }}
+    {{ form_end(form) }}
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+{% endblock %}
