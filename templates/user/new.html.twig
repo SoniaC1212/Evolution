@@ -1,13 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends "admin.html.twig" %}
+  {% block body%}
 
-{% block body %}
-    <h1>Ajouter un utilisateur</h1>
 
-    {{ form_start(form) }}
-    {{ form_row(form.nom) }}
-    {{ form_row(form.prenom) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.password) }}
-    <button type="submit" class="btn btn-success">Ajouter</button>
-    {{ form_end(form) }}
-{% endblock %}
+<br>
+<div  style=" background-image: url('https://img.freepik.com/photos-premium/craie-s-efface-tableau-noir-pour-image-arriere-plan-pour-ajouter-du-texte-education_43429-357.jpg')">
+    <div class="container">
+        <div class="row">
+            <divers class="col-md-12 text-center text-white">
+                <h2>Les Utilisateurs</h2>
+            </divers>
+
+            <br>
+
+            {{ include('user/_form.html.twig') }}
+
+            <a href="{{ path('app_user_index') }}"  class="btn btn-primary">back to list</a>
+
+
+            {% endblock %}
+
+
