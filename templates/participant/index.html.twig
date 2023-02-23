@@ -1,0 +1,39 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Participant index{% endblock %}
+
+{% block content %}
+    <h1>Participant index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IDUSER</th>
+                <th>IDEvent</th>
+                <th>Dt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participant in participants %}
+            <tr>
+                <td>{{ participant.id }}</td>
+                <td>{{ participant.user }}</td>
+                <td>{{ participant.event }}</td>
+                <td>{{ participant.dt ? participant.dt|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_participant_show', {'id': participant.id}) }}">show</a>
+                    <a href="{{ path('app_participant_edit', {'id': participant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_participant_new') }}">Create new</a>
+{% endblock %}
