@@ -1,19 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends "admin.html.twig" %}
+  {% block body%}
 
-{% block title %}Détails de l'utilisateur{{ user.nom }} {{ user.prenom }}{% endblock %}
+      <br>
+      <div  style=" background-image: url('https://img.freepik.com/photos-premium/craie-s-efface-tableau-noir-pour-image-arriere-plan-pour-ajouter-du-texte-education_43429-357.jpg')">
+      <div class="container">
+      <div class="row">
+      <divers class="col-md-12 text-center text-white">
+          <h2 style="color:white;">Les Utilisateurs</h2>
+      </divers
 
-{% block body %}
-    <h1>Détails de l'utilisateur "{{ user.nom }} {{ user.prenom }}"</h1>
 
-    <dl class="row">
-        <dt class="col-sm-3">ID</dt>
-        <dd class="col-sm-9">{{ user.id }}</dd>
+      <h1 style="color:white;">Utilisateur:</h1>
 
-        <dt class="col-sm-3">Email</dt>
-        <dd class="col-sm-9">{{ user.email }}</dd>
+      <table class="table" style="color:white;">
+          <tbody>
+          <tr>
+              <th>Idu</th>
+              <td>{{ user.idu }}</td>
+          </tr>
+          <tr>
+              <th>Cin</th>
+              <td>{{ user.cin }}</td>
+          </tr>
+          <tr>
+              <th>Nom</th>
+              <td>{{ user.nom }}</td>
+          </tr>
+          <tr>
+              <th>Prenom</th>
+              <td>{{ user.prenom }}</td>
+          </tr>
+          <tr>
+              <th>Tel</th>
+              <td>{{ user.tel }}</td>
+          </tr>
+          <tr>
+              <th>Email</th>
+              <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+              <th>Password</th>
+              <td>{{ user.password }}</td>
+          </tr>
+          <tr>
+              <th>Image</th>
+              <td>{{ user.image }}</td>
+          </tr>
+          <tr>
+              <th>Role</th>
+              <td>{{ user.role }}</td>
+          </tr>
+          <tr>
+              <th>Datenaissance</th>
+              <td>{{ user.datenaissance ? user.datenaissance|date('Y-m-d') : '' }}</td>
+          </tr>
+          </tbody>
+          <tr>
+              <th>    <a href="{{ path('app_user_index') }}" class="btn btn-info">back to list</a></th>
+              <td>    <a href="{{ path('app_user_edit', {'idu': user.idu}) }}" class="btn btn-warning">edit</a></td>
+              <td>     {{ include('user/_delete_form.html.twig') }}</td>
+          </tr>
+      </table>
 
-    </dl>
 
-    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-primary">Modifier</a>
-    <a href="{{ path('user_index') }}" class="btn btn-link">Retour à la liste des utilisateurs</a>
-{% endblock %}
+
+
+
+  {% endblock %}

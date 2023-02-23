@@ -1,37 +1,75 @@
-{% extends 'base.html.twig' %}
+{% extends "admin.html.twig" %}
+{% block body  %}
 
-{% block body %}
-    <h1>Liste des utilisateurs</h1>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Email</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>
-                    <a href="{{ path('user_show', { 'id': user.id }) }}" class="btn btn-info">Afficher</a>
-                    <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-primary">Modifier</a>
-                    <form action="{{ path('user_delete', { 'id': user.id }) }}" method="post" style="display: inline-block">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
-                    </form>
-                </td>
-            </tr>
+<br>
+
+<div  style=" background-image: url('https://img.freepik.com/photos-premium/craie-s-efface-tableau-noir-pour-image-arriere-plan-pour-ajouter-du-texte-education_43429-357.jpg')">
+
+    <div class="container">
+        <div class="row">
+            <divers class="col-md-12 text-center text-white">
+                <h2>Les Utilisateurs</h2>
+            </divers
+
+            <br>
+            <br></br>
+
+            <table  style="color:white;" class="table" id="tableac">
+
+                <thead>
+                <tr  >
+                    <td>    <a href="{{ path('app_user_new') }}" class="btn btn-success">Ajouter</a>
+                    </td>
+                </tr>
+                <tr  style="color:white;">
+                    <th style="color:white;">Idu</th>
+                    <th style="color:white;">Cin</th>
+                    <th style="color:white;">Nom</th>
+                    <th style="color:white;">Prenom</th>
+                    <th style="color:white;">Tel</th>
+                    <th style="color:white;">Email</th>
+
+                    <th style="color:white;">Image</th>
+                    <th style="color:white;">Role</th>
+                    <th style="color:white;">Datenaissance</th>
+                    <th style="color:white;">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr  style="color:white;">
+                    <td>{{ user.idu }}</td>
+                    <td>{{ user.cin }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.tel }}</td>
+                    <td>{{ user.email }}</td>
+
+                    <td>
+                        <img src="{{asset('assets/img/'~user.image)}}"
+                    </td>
+                    <td  style="color:white;">{{ user.role }}</td>
+                    <td>{{ user.datenaissance ? user.datenaissance|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_user_show', {'idu': user.idu}) }}"  class="btn btn-danger" >Afficher</a>
+
+                        <br></br>
+                        <a href="{{ path('app_user_edit', {'idu': user.idu}) }}" class="btn btn-warning" >Modifier</a>
+
+                    </td>
+                </tr>
+
+        </div>
+
         {% endfor %}
-        </tbody>
-    </table>
+        <tr>
+        </tr>
 
-    <a href="{{ path('user_new') }}" class="btn btn-success">Ajouter un utilisateur</a>
-{% endblock %}
+        </tbody>
+
+        </table>
+        </body>
+        {% endblock %}
+
+

@@ -4,41 +4,71 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\User1Type;
 use App\Repository\UserRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\VoyageOrganiseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+ * @Route("/user")
+ */
 class UserController extends AbstractController
 {
+
     /**
-     * @Route("/users", name="user_index", methods={"GET"})
+     * @Route("/", name="app_user_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        $users = $entityManager
+            ->getRepository(User::class)
+            ->findAll();
 
         return $this->render('user/index.html.twig', [
             'users' => $users,
+
         ]);
     }
 
     /**
-     * @Route("/users/new", name="user_new", methods={"GET","POST"})
+     * @Route("/admin", name="indexAdmin", methods={"GET"})
      */
-    public function new(Request $request): Response
+    public function indexAdmin(EntityManagerInterface $entityManager): Response
+    {
+
+
+        return $this->render('Admin/index.html.twig',[
+            'users' => $user
+        ]);
+    }
+    /**
+     * @Route("/new", name="app_user_new", methods={"GET", "POST"})
+     */
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+            if(($user->getCin()==null) ||($user->getNom()==null)||($user->getPrenom()==null)||($user->getDatenaissance()==null) ){
+                echo "<script > alert('Form error')</script>";
+            }
+            else{
+                $hash = password_hash($user->getPassword(), PASSWORD_DEFAULT);
+                # $encoded = $encoder->encodePassword($user,$user->getPassword());
+                $user->setPassword($hash);
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+                return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            }
+
         }
 
         return $this->render('user/new.html.twig', [
@@ -48,27 +78,36 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/users/{id}", name="user_show", methods={"GET"})
+     * @Route("/{idu}", name="app_user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
+
+
+
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
     }
 
     /**
-     * @Route("/users/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/{idu}/edit", name="app_user_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $email = $user->getEmail();
+            echo "<script > console.log('$email')</script>";
+            $em=$this->getDoctrine()->getRepository(User::class);
+            $VarName = $em->findOneBy(['email'=>$email]);
+            $user->setPassword($VarName->getPassword());
+            $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/edit.html.twig', [
@@ -78,12 +117,16 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"POST"})
+     * @Route("/{idu}", name="app_user_delete", methods={"POST"})
      */
-    public function delete( UserRepository $repo, User $user): Response
-    {   $repo->remove($user, true);
-        return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
-    }
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getIdu(), $request->request->get('_token'))) {
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
+        return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+    }
 
 }

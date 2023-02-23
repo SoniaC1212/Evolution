@@ -4,44 +4,62 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class UserType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
-                'options' => ['attr' => ['class' => 'password-field']],
-                'required' => $options['password_required'],
-                'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+            ->add('cin',  TextType::class,[
+                'required' => true
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Save',
-                'attr' => [
-                    'class' => 'btn btn-success',
-                ],
+            ->add('nom',  TextType::class,[
+                'required' => true
             ])
-        ;
-    }
+            ->add('prenom',  TextType::class,[
+                'required' => true
+            ])
+            ->add('tel',  TextType::class,[
+                'required' => true
+            ])
+            ->add('email',EmailType::class,[
+                'required' => true
+            ])
+            ->add('password', PasswordType::class, [
+                'required' => true
+            ])
+            ->add('role', ChoiceType::class,
+                array(
+                    'choices' => array(
+                        'user'    =>0,
+                        'Admin' => 1,
+                        'Etudiant' => 2,
+                        'Enseignat' => 3,
+                    )))
+            ->add('datenaissance',DateType::class, [
+                // renders it as a single text box
+                'required' => true,
+                'widget' => 'single_text'
+            ])
+            ->add('Image',TextType::class, [
+                // renders it as a single text box
+                'required' => true
+            ])
+        ;}
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'password_required' => true,
         ]);
     }
 }
