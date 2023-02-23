@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+
+{%block style%}
+<link rel="stylesheet"   href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+            <!-- STYLESHEET -->
+            <link rel="stylesheet" href="{{ asset('frontoffice/css/style.css') }}">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="{{ asset('/pub/style.css') }}">
+
+{%endblock%}
+{%block content%}
+
+{% for i in events%}
+
+
+<div class="middle">
+
+<div class="mainPosts">
+            <div class="title">
+                <div class="profile">
+                    <div class="profile-picture">
+                    <img src="{{ asset('frontoffice/images/messi.jpg') }}" alt="">
+                        
+                        <span></span>
+                    </div>
+
+                    <div class="info">
+                        <a href="#">User Name</a>
+                        <span>{{i.getDt()|date('Y-m-d') }}<i class="fas fa-globe-americas"></i></span>
+                    </div>
+                </div>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+
+            <div class="description">
+            <h3>{{ i.title }}</h3>
+
+                {{ i.description }}
+            </div>
+
+             <div class="photo">
+             <img src="{{ asset(i.img) }}"> </img>
+             </div>
+
+            <div class="reaction">
+                <div class="icons">
+                    <div class="svg">
+                        <img src="{{ asset('pub/svg/like.svg') }}" alt="">
+                    </div>
+                    <div class="svg">
+                      <img src="{{ asset('pub/svg/heart.svg') }}" alt="">
+                    </div>
+                    <div class="svg">
+                     <img src="{{ asset('pub/svg/care.svg') }}" alt="">
+                    </div>
+                    <a href="#">32k</a>
+                </div>
+            </div>
+
+            <div class="likeShare">
+                <span>
+                    <div class="svg">
+                       <img src="{{ asset('pub/svg/like_light.svg') }}"  alt="">
+                    </div>
+                    <a href="{{ path('app_participer', {'id': i.id}) }}">participer</a>
+                </span>
+                <span>
+                    <div class="svg">
+                        <img src="{{ asset('pub/svg/share.svg') }}"  href="{{ path('app_event_delete',{'id':i.id}) }}" alt="">
+                    </div>
+                    <a href="{{ path('app_event_edit', {'id': i.id}) }}">edit</a>
+                </span>
+            </div>
+            
+
+        </div>
+
+
+                  
+            
+           {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="{{ path('app_event_new') }}">Create new</a>
+{% endblock %}
