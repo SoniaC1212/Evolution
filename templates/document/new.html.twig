@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}New Document{% endblock %}
+
+{% block body %}
+    {{ include('document/_form.html.twig') }}
+
+    <a href="{{ path('app_document_index') }}">back to list</a>
+
+
+
+
+
+{% endblock %}
