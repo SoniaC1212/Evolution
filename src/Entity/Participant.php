@@ -15,7 +15,11 @@ class Participant
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+<<<<<<< HEAD
     private ?int $id = null; #ahmed bacha
+=======
+    private ?int $id = null;
+>>>>>>> origin/ahmedBranch
 
 
 

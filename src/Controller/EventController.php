@@ -18,7 +18,11 @@ class EventController extends AbstractController
     {
         return $this->render('event/frontevent.html.twig', [
             'events' => $eventRepository->findAll(),
+<<<<<<< HEAD
         ]); #fgf
+=======
+        ]);
+>>>>>>> origin/ahmedBranch
     }
 
     #[Route('/', name: 'app_event_index', methods: ['GET'])]
