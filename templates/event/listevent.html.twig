@@ -92,9 +92,11 @@
 
             <br>
         </tr>
+        
         {% else %}
             <li>No results found</li>
         {% endfor %}
+        {{knp_pagination_render(tabEvents)}}
     </tbody>
     <a class="btn btn-primary" href="{{path('trie')}}">Tri par date</a>
      

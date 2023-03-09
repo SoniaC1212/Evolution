@@ -24,10 +24,30 @@ class Event
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(message:"Type is required")]
+    /**
+
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     *      minMessage = "description length < 4",
+     *      maxMessage = "description length > 50"
+     * )
+     */
     private ?string $titre = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Length(min:12,minMessage:"La description de l'évènement doit comporter au moins {{ limit }} caractéres")]
+     /**
+
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 12,
+     *      max = 500,
+     *      minMessage = "description length < 12",
+     *      maxMessage = "description length > 500"
+     * )
+     */
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
