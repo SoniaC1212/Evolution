@@ -71,6 +71,6 @@ class __TwigTemplate_b79a1a45a3907a483c2628a6c33c2491 extends Template
     public function getSourceContext()
     {
         return new Source("{% extends 'baseBack.html.twig' %}
-", "home/dashboard.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\home\\dashboard.html.twig");
+", "home/dashboard.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\home\\dashboard.html.twig");
     }
 }

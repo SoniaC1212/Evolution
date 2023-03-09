@@ -108,6 +108,6 @@ class __TwigTemplate_f3940e471e1861b6275002d90fd98dce extends Template
     {{ include('offre/_form.html.twig') }}
 
 {% endblock %}
-", "offre/newFront.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\offre\\newFront.html.twig");
+", "offre/newFront.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\offre\\newFront.html.twig");
     }
 }

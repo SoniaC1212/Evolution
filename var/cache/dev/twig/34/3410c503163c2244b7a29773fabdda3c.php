@@ -72,6 +72,6 @@ class __TwigTemplate_c2f121f355bcc22bd47ee2e1ee3e15c9 extends Template
     {
         return new Source("{% extends 'baseFront.html.twig' %}
 
-", "home/index.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\home\\index.html.twig");
     }
 }

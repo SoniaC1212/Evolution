@@ -183,6 +183,6 @@ class __TwigTemplate_5d435cdc2ba03793c20956155757a483 extends Template
         {{ include('candidat/_delete_form.html.twig') }}
     </div>
 {% endblock %}
-", "candidat/show.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\candidat\\show.html.twig");
+", "candidat/show.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\candidat\\show.html.twig");
     }
 }

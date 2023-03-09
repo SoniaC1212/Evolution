@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/candidat')]
 class CandidatController extends AbstractController
 {
@@ -69,7 +70,7 @@ class CandidatController extends AbstractController
     #[Route('/{id}', name: 'app_candidat_delete', methods: ['POST'])]
     public function delete(Request $request, Candidat $candidat, CandidatRepository $candidatRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$candidat->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $candidat->getId(), $request->request->get('_token'))) {
             $candidatRepository->remove($candidat, true);
         }
 

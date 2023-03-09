@@ -84,6 +84,6 @@ class __TwigTemplate_f56b6630ad77e6bb522d7fa2ce321fb0 extends Template
         <button class=\"btn\">Delete</button>
     </form>
 </button>
-", "offre/_delete_form.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\offre\\_delete_form.html.twig");
+", "offre/_delete_form.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\offre\\_delete_form.html.twig");
     }
 }

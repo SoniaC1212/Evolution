@@ -204,6 +204,6 @@ class __TwigTemplate_d9639fbe501a2df5951e342f8a4e25ed extends Template
 
     <button class=\"btn\"><a href=\"{{ path('app_offre_new') }}\">Create new</a></button>
 {% endblock %}
-", "offre/index.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\offre\\index.html.twig");
+", "offre/index.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\offre\\index.html.twig");
     }
 }

@@ -108,6 +108,6 @@ class __TwigTemplate_3744bb67a633a9bf55f42337ce1d2998 extends Template
 
 
 {% endblock %}
-", "offre/edit.html.twig", "C:\\Users\\sheima\\Desktop\\Evolution-main\\templates\\offre\\edit.html.twig");
+", "offre/edit.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\offre\\edit.html.twig");
     }
 }

@@ -106,6 +106,6 @@ class __TwigTemplate_307edbd4937551e125585865a57a504a extends Template
     {{ include('candidat/_form.html.twig') }}
 
 {% endblock %}
-", "candidat/new.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\candidat\\new.html.twig");
+", "candidat/new.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\candidat\\new.html.twig");
     }
 }

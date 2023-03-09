@@ -105,6 +105,6 @@ class __TwigTemplate_a38fc0180e1168f76eb199722b7dca8e extends Template
 
     {{ include('candidat/_form.html.twig', {'button_label': 'Update'}) }}
 {% endblock %}
-", "candidat/edit.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\candidat\\edit.html.twig");
+", "candidat/edit.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\candidat\\edit.html.twig");
     }
 }

@@ -65,36 +65,36 @@ class __TwigTemplate_3bdc648f88b176aebe2c51e6663f6821 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "tache"));
 
         // line 4
-        echo "<br><br><br>
-    <h1>Offre</h1>
+        echo "\t<br><br><br>
+\t<h1>Offre</h1>
 
-    <table class=\"table\">
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>";
+\t<table class=\"table\">
+\t\t<tbody>
+\t\t\t<tr>
+\t\t\t\t<th>Titre</th>
+\t\t\t\t<td>";
         // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 11, $this->source); })()), "titre", [], "any", false, false, false, 11), "html", null, true);
         echo "</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>";
+\t\t\t</tr>
+\t\t\t<tr>
+\t\t\t\t<th>Description</th>
+\t\t\t\t<td>";
         // line 15
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 15, $this->source); })()), "description", [], "any", false, false, false, 15), "html", null, true);
         echo "</td>
-            </tr>
-            <tr>
-                <th>Proprietaire</th>
-                <td>";
+\t\t\t</tr>
+\t\t\t<tr>
+\t\t\t\t<th>Proprietaire</th>
+\t\t\t\t<td>";
         // line 19
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offre"]) || array_key_exists("offre", $context) ? $context["offre"] : (function () { throw new RuntimeError('Variable "offre" does not exist.', 19, $this->source); })()), "proprietaire", [], "any", false, false, false, 19), "html", null, true);
         echo "</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <br><br><br>
+\t\t\t</tr>
+\t\t</tbody>
+\t</table>
+
+\t<br><br><br>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -124,28 +124,28 @@ class __TwigTemplate_3bdc648f88b176aebe2c51e6663f6821 extends Template
         return new Source("{% extends \"baseFront.html.twig\" %}
 
 {% block tache %}
-<br><br><br>
-    <h1>Offre</h1>
+\t<br><br><br>
+\t<h1>Offre</h1>
 
-    <table class=\"table\">
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>{{ offre.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ offre.description }}</td>
-            </tr>
-            <tr>
-                <th>Proprietaire</th>
-                <td>{{ offre.proprietaire }}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <br><br><br>
+\t<table class=\"table\">
+\t\t<tbody>
+\t\t\t<tr>
+\t\t\t\t<th>Titre</th>
+\t\t\t\t<td>{{ offre.titre }}</td>
+\t\t\t</tr>
+\t\t\t<tr>
+\t\t\t\t<th>Description</th>
+\t\t\t\t<td>{{ offre.description }}</td>
+\t\t\t</tr>
+\t\t\t<tr>
+\t\t\t\t<th>Proprietaire</th>
+\t\t\t\t<td>{{ offre.proprietaire }}</td>
+\t\t\t</tr>
+\t\t</tbody>
+\t</table>
+
+\t<br><br><br>
 {% endblock %}
-", "offre/showFront.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\offre\\showFront.html.twig");
+", "offre/showFront.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\offre\\showFront.html.twig");
     }
 }

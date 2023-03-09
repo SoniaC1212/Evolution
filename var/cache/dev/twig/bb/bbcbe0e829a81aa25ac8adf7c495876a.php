@@ -212,6 +212,6 @@ class __TwigTemplate_876ace5e0e15b09026830265d5152237 extends Template
 
     <button class=\"btn\"><a href=\"{{ path('app_candidat_new') }}\">Create new</a></button>
 {% endblock %}
-", "candidat/index.html.twig", "C:\\Users\\azizo\\OneDrive\\Bureau\\Evolution-main\\templates\\candidat\\index.html.twig");
+", "candidat/index.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\templates\\candidat\\index.html.twig");
     }
 }

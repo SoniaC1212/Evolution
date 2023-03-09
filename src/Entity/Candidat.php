@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 #[ORM\Entity(repositoryClass: CandidatRepository::class)]
@@ -17,14 +17,17 @@ class Candidat
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups("offre")]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "First Name is required")]
+    #[Groups("offre")]
     private ?string $FirstName = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "Last Name is required")]
+    #[Groups("offre")]
     private ?string $LastName = null;
 
     #[ORM\Column(length: 255)]
@@ -38,7 +41,7 @@ class Candidat
     #[ORM\ManyToMany(targetEntity: Offre::class, inversedBy: 'candidats')]
     private Collection $offres;
 
-    
+
 
     public function __construct()
     {
@@ -100,7 +103,8 @@ class Candidat
         return $this;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         return (string) $this->FirstName;
     }
 
@@ -127,6 +131,4 @@ class Candidat
 
         return $this;
     }
-
-    
 }

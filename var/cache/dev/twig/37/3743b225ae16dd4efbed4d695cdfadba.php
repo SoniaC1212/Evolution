@@ -898,6 +898,6 @@ class __TwigTemplate_8c3734fad9b79a02aa7780f8e4c79c68 extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/translation.html.twig", "C:\\Users\\sheima\\Desktop\\Evolution-main\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
+", "@WebProfiler/Collector/translation.html.twig", "C:\\Users\\sheima\\Desktop\\GestionOffres\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
     }
 }
